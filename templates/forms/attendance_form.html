@@ -1,0 +1,60 @@
+{% extends "../base.html" %}
+{% load static %}
+{% block title %}Attendance Sheet{% endblock %}
+{% block content %}
+    
+<style>
+    .fbl {
+        background: #7952B3;
+        width:40%;
+        border:1px solid #7952B3
+    }
+    .fbl:hover{
+        background:#654398;
+        border:1px solid #654398;
+    }
+    body{
+        background:#32373d;
+    }
+    .gradient-custom-3 {
+
+    }
+</style>
+<section class="vh-100 bg-image">
+    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+        <div class="container h-100 main">
+            <div  class="row d-flex justify-content-center align-items-center h-100 ">
+                <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                    {% include '../accounts/alerts.html' %}
+                    
+                    <div class="card" style="border-radius: 15px;border:1px solid #7952B3; background:#202327;color:#E1E8EB">
+                        <div class="card-body p-5">
+                            <h1 style="color:#7952B3" class="text-center">{{att_list.name|title}} Attendance Sheet</h1>
+                            <h4 class="text-center">Dr: {{att_list.dr|title}}</h4>
+                            <h4 class="text-center">Date: {{att_list.date|title}}</h4>
+                            <br>
+                            <form action={% url "home:attendance_submit" att_list.dr.id att_list.id %} method="POST">
+                                {% csrf_token %}
+                                <div class="form-outline mb-4">
+                                    <label style="color:#7952B3" class="form-label" for="form3Example1cg">Enter Your Id Number</label>
+                                    <input name="loginid" type="text" id="form3Example1cg" class="form-control form-control-lg" />
+                                </div>
+                                <br>
+                                <br>
+                                <div class="d-flex justify-content-center">
+                                    
+                                    <button 
+                                    type="submit"
+                                    class="btn btn-primary fbl">Submit</button>
+                                </div>
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

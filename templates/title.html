@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8" />
+    <title>{% block title %}EQ Code{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{% static 'images/logo.jpg' %}"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
+    </script>
+</head>
+<style>
+  body{
+    background:#202327;
+  }
+  .card{
+    width:50%;
+    border:3px solid #7952B3;
+    color:#E1E8EB;
+    background:#32373d;
+    margin-top:150px;
+    padding:30px 0 15px 0;
+  }
+  .butt{
+    
+    background:#7952B3;
+    border:3px solid #7952B3;
+    width: 40%
+  }
+  .butt:hover{
+    background:#55387f;
+    border:3px solid #55387f
+  }
+  @media screen and (max-width: 767px) {
+    .card{
+      width:80%
+    }
+    .butt{
+      width: 90%
+    }
+</style>
+<body>
+  <div class="container card text-center">
+  <div class="card-body">
+    <h4>مشروع تخرج</h4>
+    <br>
+    <h3>عمل الطالبة : أميرة السيد السيد بسيوني ابوهنطش</h3>
+    <br>
+    <h3>عمل الطالبة : الاء احمد فرج علما</h3>
+    <br>
+    <h3>الفرقة : الرابعة</h3>
+    <br>
+    <h3>شعبة : معلم الحاسب الألي</h3>
+    <br>
+    <h3>تحت اشراف : د/ أشرف البرادعي</h3>
+    <br>
+    <br>
+    <br>
+    <a href="{% url "home:home" %}" class="btn btn-primary butt">Go to Project</a>
+  </div>
+</div>
+
+</body>
+</html>

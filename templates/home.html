@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<style>
+    .mobile-margin{
+        margin-top:40px;
+    }
+    .card-body > a > img{
+        width:50%;
+        margin-left:30px;
+    }
+    .card-body > p{
+        font-size:20px
+    }
+    body{
+        background:#32373d;
+    }
+    .fcard{
+        background:#FFC107
+    }
+    .scard{
+        background:#FFC107
+    }
+    .wel{
+        color:#E1E8EB
+    }
+    @media screen and (max-width: 767px) {
+        .mobile-margin-second {
+            margin-top:30px;
+        }
+        }
+</style>
+
+<div class="row mobile-margin">
+        {% include "accounts/alerts.html" %}
+        <h1 class="text-center mb-5 wel">
+            {% if user.id is None %}
+            {% else %}
+            Welcome <span style="color:#FFC107">{{user.full_name|title}}</span>
+            {% endif %}
+        </h1>
+        <div  class="col-sm-6 mobile-margin-second"> 
+            <div class="card text-center p-4 fcard">
+                <div class="card-body">
+                    <h2 class="card-title">Attendance</h2>
+                    {% if attendance %}
+                        {% for att in attendance %}
+                        <hr>
+                        <br>
+                        <p class="card-text"><b>Dr : </b> {{att.dr}}</p>
+                        <p class="card-text"><b>Subject Name : </b> {{att.subject_name}}</p>
+                        <p class="card-text"><b>Date : </b> {{att.date}}</p>
+                        <br>
+                        <a href="{{att.get_att_url}}">
+                        <img class="card-img-top" src="{{att.qr_code.url}}"  alt="Card image cap">
+                        </a>
+                        {% endfor %}
+                    {% else %}
+                        <br>
+                        <div style="width:70%;margin:auto;font-size:18px" class="alert alert-primary text-center" role="alert">
+                            No QR Code Yet!
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="col-sm-6 mobile-margin-second"> 
+            <div class="card text-center p-4 scard">
+                <div class="card-body">
+                    <h2 class="card-title">Leave</h2>
+                    {% if leave %}
+                        {% for leave in leave %}
+                        <hr>
+                        <br>
+                        <p class="card-text"><b>Dr : </b> {{leave.dr}}</p>
+                        <p class="card-text"><b>Subject Name : </b> {{leave.subject_name}}</p>
+                        <p class="card-text"><b>Date : </b> {{leave.date}}</p>
+                        <br>
+                        <a href="{{leave.get_leave_url}}">
+                        <img class="card-img-top" src="{{leave.qr_code.url}}"  alt="Card image cap">
+                        </a>
+                        {% endfor %}
+                    {% else %}
+                        <br>
+                        <div style="width:70%;margin:auto;font-size:18px" class="alert alert-primary text-center" role="alert">
+                            No QR Code Yet!
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        
+</div>
+{% endblock %}

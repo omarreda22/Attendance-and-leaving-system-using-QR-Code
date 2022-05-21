@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>{% block title %}EQ Code{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{% static 'images/logo.jpg' %}"/>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
+    </script>
+    
+    <style>
+        .fb{
+            background:#7952B3;
+            border:1px solid #7952B3;
+            margin:5px
+        }
+        .fb:hover{
+            background:#654398;
+            border:1px solid #654398;
+        }
+        .sb{
+            background:#7952B3;
+            border:1px solid #7952B3;
+            margin:5px
+        }
+        .sb:hover{
+            background:#654398;
+            border:1px solid #654398;
+        }
+        .logintb{
+            background:#7952B3;
+            border:1px solid #7952B3;
+            
+            font-weight:500;
+            margin:5px;
+        }
+        .logintb:hover{
+            background:#654398;
+            border:1px solid #654398;
+        }
+        .logouttb{
+            background:#ffce39;
+            border:1px solid #FFC107;
+            color:#000;
+            
+            font-weight:500;
+            margin:5px;
+        }
+        .logouttb:hover{
+            background:#FFC107;
+            border:1px solid #FFC107;
+            color:#000;
+        }
+
+    </style>
+</head>
+
+<body >
+    <header>
+        <nav style="background:#202327;"  class="navbar navbar-expand-md">
+            <div class="container">
+                <a style="font-size:25px; color:#E1E8EB" class="navbar-brand" href="\"><b>EQ Code</b></a>
+                <button style="background:#7952B3;color:#E1E8EB" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"><i style="margin-top:3px;font-size:25px"  class="fas fa-bars"></i></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                        <li class="nav-item active">
+                            <a style="font-size:18px; color:#E1E8EB" class="nav-link" aria-current="page" href="{% url 'home:home'%}">Home</a>
+                        </li>
+                    </ul>
+                    {% comment %} <a href="{% url "home:attendance_list" %}" class="btn btn-primary fb">Attendance List</a>
+                    <br>
+                    </ul><a href="{% url "home:leave_list" %}" class="btn btn-success sb">Leave List</a>
+                    <br> {% endcomment %}
+                    {% if user.id is None %}
+                    </ul><a href="{% url "accounts:login" %}" class="btn btn-success logintb">Login</a>
+                    {% else %}
+                    </ul><a href="{% url "accounts:logout" %}" class="btn btn-success logintb">Logout</a>
+                    {% endif %}
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+    {% block content %} {% endblock %}
+    </div>
+</body>
+
+</html>

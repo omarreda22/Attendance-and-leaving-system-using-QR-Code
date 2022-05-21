@@ -1,0 +1,49 @@
+{% extends "../base.html" %}
+{% load static %}
+{% block title %}Attendance List{% endblock %}
+{% block content %}
+<style>
+    h1 {
+        margin-top: 80px;
+    }
+    table{
+        margin-top:50px
+    }
+</style>
+<div class="main-container">
+    <h1 class="text-center">{{att_list.name}} Attendance List <spna style="font-size:18px;color:#7952B3">({{count}})</span></h1>
+    <h2 class="text-center">Dr: {{att_list.dr}}</h2>
+    <h2 class="text-center">Date: {{att_list.date}}</h2>
+    {% if student_list %}
+    <div class="table-responsive">
+    <table class="table table-hover text-center">
+        <thead>
+            <tr>
+                <th style="color:#7952B3" scope="col">Name</th>
+                <th style="color:#7952B3" scope="col">Email</th>
+                <th style="color:#7952B3" scope="col">Group Number</th>
+                <th style="color:#7952B3" scope="col">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for li in student_list %}
+            <tr>
+                <td>{{li.user.full_name}}</td>
+                <td>{{li.user.email}}</td>
+                <td>{{li.user.Class}}</td>
+                <td>{{li.created_at}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div iv>
+    {% else %}
+    <br>
+    <br>
+    <div style="width:70%;margin:auto;font-size:18px" class="alert alert-primary text-center" role="alert">
+        No One Yet!
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}
