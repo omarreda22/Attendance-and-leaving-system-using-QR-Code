@@ -1,5 +1,5 @@
 # University attendance and departure system using QR Code
--- Image Here
+![Qr Code Home](https://github.com/omarreda22/Attendance-and-leaving-system-using-QR-Code/blob/main/static/qr_code_project.PNG)
 
 
 University attendance and departure system QR Code using (python/django)
