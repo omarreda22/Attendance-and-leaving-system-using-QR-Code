@@ -9,6 +9,7 @@ University attendance and departure system QR Code using (python/django)
 before every lecture for every professor 
 1. professor create QR code for attendance and departure 
 2. the worker print this qr code and paste on for example lecture room door (also will display in site)
+
 ![Professor_side](https://github.com/omarreda22/Attendance-and-leaving-system-using-QR-Code/blob/main/static/professor_side%20(1).gif)
 
 
