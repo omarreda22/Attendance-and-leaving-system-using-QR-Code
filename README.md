@@ -1,4 +1,7 @@
-# University attendance and departure system QR Code using (python/django)
+# University attendance and departure system
+
+Create QR Code using (Python/Django), and use this codes for university attendance and departure system
+
 ![Qr Code Home](https://github.com/omarreda22/Attendance-and-leaving-system-using-QR-Code/blob/main/static/qr_code_project.PNG)
 
 
