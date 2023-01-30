@@ -20,3 +20,4 @@ before every lecture for every professor
 3. student will submit by name and id
 4. he will display in students table for this lecture
 
+![student_side](https://github.com/omarreda22/Attendance-and-leaving-system-using-QR-Code/blob/main/static/student_sdie.gif)
